@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIC Agent Portfolio - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.8;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .navbar {
+            background: #004080;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .nav-left {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .navbar .nav-right {
+            display: flex;
+            gap: 15px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffb400;
+        }
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+        }
+        @media (max-width: 768px) {
+            .navbar .nav-right {
+                display: none;
+                flex-direction: column;
+                background: #078692;
+                color: white;
+                position: absolute;
+                top: 60px;
+                padding: 20px;
+                right: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+                overflow: hidden;
+            }
+            .navbar .nav-right.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+        }
+        header {
+            background: linear-gradient(90deg, #002147, #004080);
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .section h2 {
+            font-size: 2.4rem;
+            color: #002147;
+            margin-bottom: 30px;
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 900px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/900x400') no-repeat center/cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ffb400;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+        .hero h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+            color: #002147;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .btn {
+            background: #ffb400;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background: #ff8c00;
+            transform: translateY(-2px);
+        }
+        .achievement, .testimonial {
+            background: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .achievement p, .testimonial p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .achievement h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #004080;
+            margin-bottom: 10px;
+        }
+        footer {
+            background: #002147;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 30px;
+        }
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">LIC Portfolio</div>
+        <div class="menu-toggle" id="menu-toggle">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav-right" id="nav-right">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Welcome to My LIC Portfolio</h1>
+        <p>Your Trusted LIC Agent for Securing Your Future</p>
+    </header>
+
+    <section class="hero">
+        <img src="https://via.placeholder.com/150" alt="Agent Profile Photo" class="profile-photo">
+        <h2>Plan for Tomorrow, Today!</h2>
+        <p>As your LIC agent, I am dedicated to providing tailored life insurance solutions to meet your unique needs. Let me help you secure a brighter and more stable future for you and your loved ones.</p>
+        <a href="#contact" class="btn">Request a Free Consultation</a>
+    </section>
+
+    <section class="section">
+        <h2>Achievements</h2>
+        <div class="achievement">
+            <h3>Top LIC Agent Award - 2023</h3>
+            <p>Recognized as one of the top-performing LIC agents for exceptional sales and customer service.</p>
+        </div>
+        <div class="achievement">
+            <h3>Million Dollar Club Member</h3>
+            <p>Achieved a sales milestone of over 1 million in policy value, showcasing dedication and excellence.</p>
+        </div>
+        <div class="achievement">
+            <h3>Best Client Service Award</h3>
+            <p>Received accolades for outstanding customer support and building long-lasting client relationships.</p>
+        </div>
+    </section>
+
+    <section class="section testimonials">
+        <h2>Reviews</h2>
+        <div class="testimonial">
+            <p>"Thanks to [Agent's Name], I was able to secure a policy that perfectly fits my family's needs. Highly recommended!"</p>
+            <span class="client-name">- John Doe</span>
+        </div>
+        <div class="testimonial">
+            <p>"[Agent's Name] made the entire process so simple and stress-free. I now feel more confident about my future."</p>
+            <span class="client-name">- Jane Smith</span>
+        </div>
+        <div class="testimonial">
+            <p>"Professional, reliable, and knowledgeable. I couldn't ask for a better LIC agent."</p>
+            <span class="client-name">- Michael Lee</span>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 LIC Agent Portfolio | Designed with Care for Your Future</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navRight = document.getElementById('nav-right');
+
+        menuToggle.addEventListener('click', () => {
+            navRight.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
